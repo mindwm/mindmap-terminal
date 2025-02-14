@@ -1,6 +1,6 @@
 <map version="freeplane 1.12.1">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node LOCALIZED_TEXT="new_mindmap" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1739540932627">
+<node TEXT="terminal" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1739547383707">
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
 <font BOLD="true"/>
 <hook NAME="MapStyle" background="#f9f9f8ff">
@@ -84,6 +84,6 @@
 </stylenode>
 </map_styles>
 </hook>
-<attribute NAME="scriptOnMapOpen" VALUE="def command = &quot;gnome-terminal&quot;&#xa;def process = Runtime.runtime.exec(command)&#xa;"/>
+<attribute NAME="scriptOnMapOpen" VALUE="def command = &quot;bin/mindwm-terminal.sh &quot; + node.nodeID&#xa;def process = Runtime.runtime.exec(command)&#xa;"/>
 </node>
 </map>
