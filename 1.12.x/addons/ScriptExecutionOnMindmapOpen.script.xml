@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon name="ScriptExecutionOnMindmapOpen" version="v2023.07.01" latestVersion="" freeplaneVersionFrom="1.7.10" homepage="https://github.com/macmarrum/freeplane-ScriptExecutionOnMindmapOpen" updateUrl="https://raw.githubusercontent.com/macmarrum/freeplane-ScriptExecutionOnMindmapOpen/main/version.properties" author="macmarrum" active="true">
+    <description><![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      
+    </p>
+    <p>
+      Freeplane has the functionality to execute Groovy scripts when the application starts. It's known as &quot;init scripts&quot; → <font color="#00b6c6"><a href="https://docs.freeplane.org/?search=init">https://docs.freeplane.org/?search=init</a></font>
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      This add-on extends the functionality with the ability to execute scripts when a mindmap is opened, i.e. individually for each mindmap.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      To execute a script for a mindmap, in your root node add an attribute named &quot;scriptOnMapOpen&quot;, then use `<font face="Monospaced">Tools-&gt;Edit script...</font>` to enter the Groovy code.
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      <i>Note: The attribute name must start with &quot;scriptOnMapOpen&quot; but can have any suffix</i>
+    </p>
+  </body>
+</html>]]></description>
+    <license><![CDATA[
+This add-on is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+]]></license>
+    <preferences.xml><![CDATA[<?xml version="1.0" encoding="UTF-8"?><preferences_structure xmlns="http://freeplane.sf.net/ui/preferences/1.0">
+<tabbed_pane>
+<tab name="plugins">
+<separator name="script_on_map_open">
+<maybe_boolean name="ScriptOnMapOpen.execute_without_asking" />
+</separator>
+</tab>
+</tabbed_pane>
+</preferences_structure>]]></preferences.xml>
+    <translations>
+        <locale name="en">
+            <entry key="addons.ScriptExecutionOnMindmapOpen"><![CDATA[Script Execution On Mindmap Open]]></entry>
+            <entry key="OptionPanel.separator.script_on_map_open"><![CDATA[Script Execution On Mindmap Open]]></entry>
+            <entry key="ScriptOnMapOpen.execute_without_asking"><![CDATA[Enable scriptOnMapOpen execution]]></entry>
+        </locale>
+    </translations>
+    <default.properties ScriptOnMapOpen.execute_without_asking="ask"/>
+    <images>
+        <image name="${name}.png"/>
+        <image name="${name}-icon.png"/>
+    </images>
+    <deinstall>
+        <delete><![CDATA[${installationbase}/addons/ScriptExecutionOnMindmapOpen.script.xml]]></delete>
+        <delete><![CDATA[${installationbase}/scripts/init/macmarrumScriptOnMapOpen.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/images/ScriptExecutionOnMindmapOpen.png]]></delete>
+        <delete><![CDATA[${installationbase}/images/ScriptExecutionOnMindmapOpen-icon.png]]></delete>
+    </deinstall>
+    <scripts/>
+    <libs/>
+</addon>
