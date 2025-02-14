@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 SESSION_ID=$1
-#TMUX_SESSION_NAME="${SESSION_ID}"
-TMUX_SESSION_NAME="mindwm-terminal-`date +%s`"
+TMUX_SESSION_NAME="${SESSION_ID}"
+#TMUX_SESSION_NAME="mindwm-terminal-`date +%s`"
 WINDOW_TITLE="${TMUX_SESSION_NAME}"
 
 gnome-terminal -t "${WINDOW_TITLE}" -- sh -c "tmux new -s ${TMUX_SESSION_NAME}"
