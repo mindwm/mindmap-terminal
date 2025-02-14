@@ -1,9 +1,9 @@
 <map version="freeplane 1.12.1">
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
-<node TEXT="terminal" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1739547383707">
+<node TEXT="terminal" LOCALIZED_STYLE_REF="AutomaticLayout.level.root" FOLDED="false" ID="ID_1090958577" CREATED="1409300609620" MODIFIED="1739559567493">
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
 <font BOLD="true"/>
-<hook NAME="MapStyle" background="#f9f9f8ff">
+<hook NAME="MapStyle" background="#f9f9f8ff" zoom="1.5">
     <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_tags="UNDER_NODES" show_note_icons="true" associatedTemplateLocation="template:/terminal.mm" fit_to_viewport="false" show_icons="BESIDE_NODES"/>
     <tags category_separator="::"/>
 
@@ -84,6 +84,6 @@
 </stylenode>
 </map_styles>
 </hook>
-<attribute NAME="scriptOnMapOpen" VALUE="def command = &quot;bin/mindwm-terminal.sh &quot; + node.nodeID&#xa;def process = Runtime.runtime.exec(command)&#xa;"/>
+<attribute NAME="scriptOnMapOpen" VALUE="def freeplanePid = ProcessHandle.current().pid()&#xa;def nodeTmuxSessionName = &apos;mindmap-terminal-&apos; + freeplanePid + &quot;-&quot; + node.map.getName() + &quot;-&quot; + node.getId()&#xa;node.attributes.set(&quot;tmux session name&quot;, nodeTmuxSessionName)&#xa;def command = &quot;bin/mindwm-terminal.sh &quot; + nodeTmuxSessionName&#xa;def process = Runtime.runtime.exec(command)&#xa;node.mindMap.addListener(new TerminalNodeChangeListenerForModified())"/>
 </node>
 </map>
