@@ -7,23 +7,26 @@ import io.cloudevents.core.v1.CloudEventBuilder
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 
+
 import java.time.OffsetDateTime
-
-
-//import io.cloudevents.core.builder.CloudEventBuilder
-//import io.cloudevents.http.HttpMessageFactory
-//import org.apache.hc.client5.http.fluent.Request
-//import org.apache.hc.core5.http.ContentType
 
 import java.net.URI
 import java.time.OffsetDateTime
 import java.util.UUID
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.databind.SerializationFeature
+import java.nio.charset.StandardCharsets
 
 
-def sendCloudEvent(CloudEvent event) {
-  def post = new URL("http://127.0.0.1:8080/post").openConnection();
+def MINDWM_MANAGER_HTTP_ENDPOINT = System.getenv('MINDWM_MANAGER_HTTP_ENDPOINT') ?: 'http://localhost:38080'
+
+println "MINDWM_MANAGER_HTTP_ENDPOINT: ${MINDWM_MANAGER_HTTP_ENDPOINT}"
+
+
+def sendCloudEvent(endpoint, CloudEvent event) {
+  def post = new URL(endpoint + "/post").openConnection();
   def mapper = new ObjectMapper()
+  mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
   mapper.registerModule(new JavaTimeModule())
   def message = mapper.writeValueAsString(event)
   post.setRequestMethod("POST")
@@ -37,16 +40,20 @@ def sendCloudEvent(CloudEvent event) {
   }
 }
 
-
-// Example of building a CloudEvent in Groovy
+def jsonData = '{"hello": "world"}'.getBytes(StandardCharsets.UTF_8)
 def cloudEvent = new CloudEventBuilder()
-    .withId("example-id")
-    .withSource(URI.create("https://example.com"))
-    .withType("example.type")
+    .withId(UUID.randomUUID().toString())
+    .withDataContentType('application/json')
+    .withSource(URI.create("org.mindwm.v2.user.bebebeka.alice"))
+    .withType("org.mindwm.v2.mindmap.node.title.change")
     .withTime(OffsetDateTime.now())
+    .withSubject("org.mindwm.v2.mindmap.test")
+    .withData('{"hello": "world"}')
     .build()
 
-//println "CloudEvent: ${cloudEvent}"
+println "CloudEvent: ${cloudEvent}"
 
-sendCloudEvent(cloudEvent)
+sendCloudEvent(MINDWM_MANAGER_HTTP_ENDPOINT, cloudEvent)
+
+
 
