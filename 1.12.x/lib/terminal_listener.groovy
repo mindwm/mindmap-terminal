@@ -46,7 +46,7 @@ class TerminalNodeChangeListenerForModified implements NodeChangeListener {
             return
         canReact = false
         switch (event.changedElement) {
-            case [ChangedElement.TEXT, ChangedElement.NOTE, ChangedElement.ICON]:
+            case [ChangedElement.TEXT, ChangedElement.DETAILS, ChangedElement.NOTE, ChangedElement.ICON]:
                 def node = event.node
                 println "${event.node}"
                 def manager = new MindwmManager()
@@ -54,16 +54,18 @@ class TerminalNodeChangeListenerForModified implements NodeChangeListener {
                 def type = "org.mindwm.v1.mindmap.node.update.${event.changedElement}" 
                 def subject = "org.mindwm.v1.mindmap.${node.map.getName()}.node.${node.getId()}" 
 
-                def nodeData = [
-                  title      : node.getText(),
-                  details    : node.getDetails(),
-                  attributes : node.getAttributes(),
-                  notes      : node.getNote()
+                Map nodeData = [
+                  title      : node.getText().toString(),
+                  details    : node.getDetails().toString(),
+                  attributes : [:],
+                  notes      : node.getNote().toString()
                 ]
-                  
-                // def g = new JsonGenerator.Options().disableUnicodeEscaping().build()
-                // def jsonString = g.toJson(nodeData)
+                node.getAttributes().getNames().each { key ->
+                  nodeData.attributes[key] = node.getAttributes().get(key)
+                }
 
+                println nodeData
+                  
                 def String jsonString = ""
                 try { 
                     JsonGenerator.Options options = new JsonGenerator.Options()
@@ -71,7 +73,7 @@ class TerminalNodeChangeListenerForModified implements NodeChangeListener {
                     jsonString = generator.toJson( nodeData )
                     println JsonOutput.prettyPrint( jsonString )
                 } catch( Exception e){
-                       println "Unable to save the settings : $e"
+                    println "Unable to create json for node ${node} : $e"
                 }
 
                 manager.sendCloudEvent(source, subject, type, jsonString)
