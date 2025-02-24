@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon name="devtools" version="v2.2.3" latestVersion="" freeplaneVersionFrom="1.11.8" homepage="https://github.com/EdoFro/freeplane-devtools" updateUrl="https://github.com/EdoFro/freeplane-devtools/releases/latest/download/version.properties" author="Volker B&#xf6;rchers, Henk van den Akker, Gergely Papp, Edo Frohlich" active="true">
+    <description><![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font size="3">This add-on collects some utilities that script and/or add-on developers will find useful. </font>
+    </p>
+    <ul>
+      <li>
+        <i><font size="3">Build add-on</font></i><font size="3">: adds all standard nodes, attributes and notes to the current map. Can be used with an empty Map to create a basic add-on. </font>
+      </li>
+      <li>
+        <i><font size="3">Package add-on for release</font></i><font size="3">: It copies the &lt;addon&gt;.mm to &lt;addon&gt;-&lt;version&gt;.mm and updates the script node's context from the files lying around. </font>
+      </li>
+      <li>
+        <i><font size="3">Generate add-on documentation</font></i><font size="3">: Creates a snippet for the Freeplane add-ons wiki page. </font>
+      </li>
+      <li>
+        <i><font size="3">Insert binary</font></i><font size="3">: Asks for a file to insert as text of the current node&nbsp;(BASE64 encoded). </font>
+      </li>
+      <li>
+        <i><font size="3">Extract binary</font></i><font size="3">: Asks for a file to extract the BASE64 encoded binary in the current node to. </font>
+      </li>
+      <li>
+        <i><font size="3">Encode translation</font></i><font size="3">: Encode non-ASCII characters so that they don't get scrambled while packaging or installation. This function is included in <i>Package add-on for release</i>&nbsp;so you don't need this function. </font>
+      </li>
+      <li>
+        <i><font size="3">Menu item info</font></i><font size="3">: Shows technical details about a selected menu item. </font>
+      </li>
+      <li>
+        <i><font size="3">freeplane.dsld</font></i><font size="3">: Adds Eclipse editor support for predefined script bindings such as node, c, ui, textUtils, ... </font>
+      </li>
+      <li>
+        <i><font size="3">Inspect installed Add-On</font></i><font size="3">: Inserts a node with the properties information of the installed add-on you select.</font>
+      </li>
+      <li>
+        <i><font size="3">Export Translations</font></i><font size="3">:Exports translations as properties files to 'translations' folder<br>This way you can work on the localization with other special tools </font>
+      </li>
+      <li>
+        <i><font size="3">Import Translations</font></i><font size="3">: Imports translations from properties files Only if a 'translations' folder exists<br>This way you can update the add-on with the localization files<br>This feature is also automatically applied when packaging the add-on. (Originally added by GPAPP) </font>
+      </li>
+    </ul>
+    <p>
+      <font size="3">The functions are available under Tools -&gt; Development Tools</font>
+    </p>
+  </body>
+</html>]]></description>
+    <license><![CDATA[This add-on is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.]]></license>
+    <preferences.xml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<preferences_structure>
+         <tabbed_pane>
+                  <tab name="plugins">
+                            <separator name = "devtools">
+                                    <string name = "devtools_addonsMenu"/>
+                                    <string name = "devtools_updateUrl"/>
+                                    <string name = "devtools_downloadUrl"/>
+                                    <string name = "devtools_changelogUrl"/>
+                           </separator>
+                  </tab>
+         </tabbed_pane>
+</preferences_structure>]]></preferences.xml>
+    <translations>
+        <locale name="de">
+            <entry key="addons.devtools.checkAddOn"><![CDATA[Komplettiere Add-on]]></entry>
+            <entry key="addons.devtools.menuItemInfo"><![CDATA[Men\u00FCeintrag-Details]]></entry>
+            <entry key="addons.devtools.importTranslations"><![CDATA[\u00DCbersetzungen importieren]]></entry>
+            <entry key="addons.devtools.encodeTranslations"><![CDATA[\u00DCbersetzungen kodieren]]></entry>
+            <entry key="addons.devtools.releaseAddOn"><![CDATA[Add-on-Package erzeugen]]></entry>
+            <entry key="addons.devtools.addOnDoc"><![CDATA[Add-on-Dokumentation erzeugen]]></entry>
+            <entry key="addons.devtools"><![CDATA[Entwicklungswerkzeuge]]></entry>
+            <entry key="addons.devtools.extractBinary"><![CDATA[Knoten in Bin\u00E4rdatei extrahieren]]></entry>
+            <entry key="addons.devtools.insertBinary"><![CDATA[Bin\u00E4rdatei einf\u00FCgen]]></entry>
+            <entry key="addons.devtools.exportTranslations"><![CDATA[\u00DCbersetzungen exportieren]]></entry>
+        </locale>
+        <locale name="en">
+            <entry key="addons.devtools.menuItemInfo"><![CDATA[Menu item info]]></entry>
+            <entry key="addons.devtools.checkAddOn"><![CDATA[Build add-on]]></entry>
+            <entry key="addons.devtools.importTranslations"><![CDATA[Import Translations]]></entry>
+            <entry key="addons.devtools.encodeTranslations"><![CDATA[Encode translations]]></entry>
+            <entry key="addons.devtools.releaseAddOn"><![CDATA[Package add-on for publication]]></entry>
+            <entry key="addons.devtools"><![CDATA[Developer Tools]]></entry>
+            <entry key="addons.devtools.generateAddonsPropertiesMap"><![CDATA[Generate addons properties map]]></entry>
+            <entry key="OptionPanel.devtools_downloadUrl"><![CDATA[Download URL]]></entry>
+            <entry key="addons.devtools.insertBinary"><![CDATA[Insert Binary]]></entry>
+            <entry key="OptionPanel.devtools_addonsMenu.tooltip"><![CDATA[Defines the addon's main menu location in Freeplane's UI, defaults menu 'main_menu_scripting']]></entry>
+            <entry key="OptionPanel.devtools_changelogUrl"><![CDATA[Change log URL]]></entry>
+            <entry key="OptionPanel.separator.devtools"><![CDATA[Developer Tools]]></entry>
+            <entry key="OptionPanel.devtools_downloadUrl.tooltip"><![CDATA[URL from the place where the AddOn file will be available for downloading. \nBy default is the same as the homepage. \nYou can define a different place or a subfolder of the homepage. \nExample: "${homepage}/files"]]></entry>
+            <entry key="OptionPanel.devtools_addonsMenu"><![CDATA[Add-on's menu ]]></entry>
+            <entry key="addons.devtools.addOnDoc"><![CDATA[Generate add-on documentation]]></entry>
+            <entry key="OptionPanel.devtools_updateUrl"><![CDATA[Update URL]]></entry>
+            <entry key="OptionPanel.devtools_updateUrl.tooltip"><![CDATA[URL of the file containing information (version, download url, change log url) on the latest version of this add-on. \nBy default: "${homepage}/version.properties"]]></entry>
+            <entry key="addons.devtools.inspectInstalledAddOn"><![CDATA[Add-on properties info]]></entry>
+            <entry key="OptionPanel.devtools_changelogUrl.tooltip"><![CDATA[URL of the file containing the history of the changes done to the AddOn in each release. \nBy default: "${homepage}/history.md"\nother example: "${downloadUrl}/history.md"]]></entry>
+            <entry key="addons.devtools.extractBinary"><![CDATA[Extract Binary]]></entry>
+            <entry key="addons.devtools.exportTranslations"><![CDATA[Export Translations]]></entry>
+        </locale>
+        <locale name="es">
+            <entry key="addons.devtools.menuItemInfo"><![CDATA[Informaci\u00F3n de \u00EDtem de men\u00FA]]></entry>
+            <entry key="addons.devtools.checkAddOn"><![CDATA[Construir add-on]]></entry>
+            <entry key="addons.devtools.importTranslations"><![CDATA[Importar traducciones]]></entry>
+            <entry key="addons.devtools.encodeTranslations"><![CDATA[Codificar traducciones]]></entry>
+            <entry key="addons.devtools.releaseAddOn"><![CDATA[Empaquetar add-on para su publicaci\u00F3n]]></entry>
+            <entry key="addons.devtools"><![CDATA[Herramientas para desarrolladores]]></entry>
+            <entry key="OptionPanel.devtools_downloadUrl"><![CDATA[URL de descarga]]></entry>
+            <entry key="addons.devtools.insertBinary"><![CDATA[Insertar binario]]></entry>
+            <entry key="OptionPanel.devtools_addonsMenu.tooltip"><![CDATA[Define la ubicaci\u00F3n del submen\u00FA del add-on dentro del men\u00FA de Freeplane. 
+Valor default: 'main_menu_scripting']]></entry>
+            <entry key="OptionPanel.devtools_changelogUrl"><![CDATA[URL del documento historial de cambios]]></entry>
+            <entry key="OptionPanel.separator.devtools"><![CDATA[Herramientas para desarrolladores]]></entry>
+            <entry key="OptionPanel.devtools_downloadUrl.tooltip"><![CDATA[URL del sitio donde se podr\u00E1 descargar el add-on. \Por default es el mismo que su homepage. \nSe puede definir un sitio diferente o una subcarpeta de la homepage. \nEjemplo: "${homepage}/files"]]></entry>
+            <entry key="OptionPanel.devtools_addonsMenu"><![CDATA[Menu del Add-on]]></entry>
+            <entry key="addons.devtools.addOnDoc"><![CDATA[Generar documentaci\u00F3n de add-on]]></entry>
+            <entry key="OptionPanel.devtools_updateUrl"><![CDATA[URL de actualizaci\u00F3n]]></entry>
+            <entry key="OptionPanel.devtools_updateUrl.tooltip"><![CDATA[URL del archivo que contiene la informaci\u00F3n de la \u00FAltima versi\u00F3n del Add-on (versi\u00F3n, URL de descarga, URL del historial).\nPor default: "${homepage}/version.properties"]]></entry>
+            <entry key="addons.devtools.inspectInstalledAddOn"><![CDATA[Obtener inforrmacion de Add-On instalado]]></entry>
+            <entry key="OptionPanel.devtools_changelogUrl.tooltip"><![CDATA[URL para el archivo de Historial de Cambios del Add-on. \nPor default: "${homepage}/history.md"\notro ejemplo: "${downloadUrl}/history.md"]]></entry>
+            <entry key="addons.devtools.extractBinary"><![CDATA[Extraer binario]]></entry>
+            <entry key="addons.devtools.exportTranslations"><![CDATA[Exportar traducciones]]></entry>
+        </locale>
+        <locale name="nl">
+            <entry key="addons.devtools.checkAddOn"><![CDATA[Add-on opbouwen]]></entry>
+            <entry key="addons.devtools.menuItemInfo"><![CDATA[Menu item info]]></entry>
+            <entry key="addons.devtools.encodeTranslations"><![CDATA[Vertalingen coderen]]></entry>
+            <entry key="addons.devtools.releaseAddOn"><![CDATA[Add-on package genereren]]></entry>
+            <entry key="addons.devtools.addOnDoc"><![CDATA[Add-on documentatie genereren]]></entry>
+            <entry key="addons.devtools"><![CDATA[Ontwikkeltools]]></entry>
+            <entry key="addons.devtools.insertBinary"><![CDATA[Binary invoegen]]></entry>
+        </locale>
+    </translations>
+    <default.properties devtools.icon="/images/devtools-icon.png" devtools_addonsMenu="main_menu_scripting" devtools_updateUrl="S{homepage}/version.properties" devtools_downloadUrl="S{homepage}" devtools_changelogUrl="S{homepage}/history.md"/>
+    <images>
+        <image name="${name}.png"/>
+        <image name="${name}-icon.png"/>
+        <image name="${name}-screenshot-1.png"/>
+    </images>
+    <deinstall>
+        <delete><![CDATA[${installationbase}/addons/devtools.script.xml]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/addOnDoc.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/checkAddOn.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/encodeTranslations.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/extractBinary.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/insertBinary.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/menuItemInfo.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/releaseAddOn.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/scripts/freeplane.dsld]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/exportTranslations.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/importTranslations.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/resources/images/devtools.png]]></delete>
+        <delete><![CDATA[${installationbase}/resources/images/devtools-icon.png]]></delete>
+        <delete><![CDATA[${installationbase}/resources/images/devtools-screenshot-1.png]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/inspectInstalledAddOn.groovy]]></delete>
+        <delete><![CDATA[${installationbase}/templates/devtools/Installed AddOns Properties template.mm]]></delete>
+        <delete><![CDATA[${installationbase}/addons/devtools/scripts/generateAddonsPropertiesMap.groovy]]></delete>
+    </deinstall>
+    <scripts>
+        <script name="checkAddOn.groovy" menuTitleKey="addons.devtools.checkAddOn" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="true" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="releaseAddOn.groovy" menuTitleKey="addons.devtools.releaseAddOn" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="true" execute_scripts_without_exec_restriction="true" execute_scripts_without_network_restriction="true" signed_script_are_trusted="false"/>
+        <script name="addOnDoc.groovy" menuTitleKey="addons.devtools.addOnDoc" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="menuItemInfo.groovy" menuTitleKey="addons.devtools.menuItemInfo" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="insertBinary.groovy" menuTitleKey="addons.devtools.insertBinary" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="true" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="extractBinary.groovy" menuTitleKey="addons.devtools.extractBinary" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="true" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="encodeTranslations.groovy" menuTitleKey="addons.devtools.encodeTranslations" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="exportTranslations.groovy" menuTitleKey="addons.devtools.exportTranslations" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="true" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="importTranslations.groovy" menuTitleKey="addons.devtools.importTranslations" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="inspectInstalledAddOn.groovy" menuTitleKey="addons.devtools.inspectInstalledAddOn" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+        <script name="generateAddonsPropertiesMap.groovy" menuTitleKey="addons.devtools.generateAddonsPropertiesMap" menuLocation="main_menu_scripting/addons.devtools" executionMode="ON_SINGLE_NODE" execute_scripts_without_asking="true" execute_scripts_without_file_restriction="true" execute_scripts_without_write_restriction="false" execute_scripts_without_exec_restriction="false" execute_scripts_without_network_restriction="false" signed_script_are_trusted="false"/>
+    </scripts>
+    <libs/>
+</addon>
