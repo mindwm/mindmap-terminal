@@ -9,4 +9,6 @@ freeplane_grpc_plugin_download:
 	} 	
 
 freeplane_start: freeplane_grpc_plugin_download
+	export MINDWM_USER=$${USER}
+	export MINDWM_HOST=$$(hostname -s)
 	freeplane -U`pwd`
