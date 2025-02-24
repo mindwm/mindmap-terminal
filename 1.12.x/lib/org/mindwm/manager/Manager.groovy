@@ -29,7 +29,7 @@ class MindwmManager {
   String endpoint = System.getenv('MINDWM_MANAGER_HTTP_ENDPOINT') ?: 'http://localhost:38080'
 
   CloudEvent sendCloudEventHTTP(CloudEvent event) {  
-    def post = new URL(endpoint + "/post").openConnection();
+    def post = new URL(endpoint + "/freeplane").openConnection();
     def mapper = new ObjectMapper()
     mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
     mapper.registerModule(new JavaTimeModule())
@@ -44,7 +44,7 @@ class MindwmManager {
         println(post.getInputStream().getText());
     }
   } 
-  CloudEvent sendCloudEvent(String source, String type, String subject, String dataPayload) {  
+  CloudEvent sendCloudEvent(String source, String subject, String type, String dataPayload) {  
 
     def objectMapper = new ObjectMapper()
 
