@@ -11,4 +11,7 @@ freeplane_grpc_plugin_download:
 freeplane_start: freeplane_grpc_plugin_download
 	export MINDWM_USER=$${USER}
 	export MINDWM_HOST=$$(hostname -s)
-	freeplane -U`pwd`
+	# Waiting for it to be merged and a new Freeplane version to be released  
+	# before using the locally built Freeplane version.
+	~/git/freeplane/BIN/freeplane.sh -U`pwd`
+#	freeplane -U`pwd`
